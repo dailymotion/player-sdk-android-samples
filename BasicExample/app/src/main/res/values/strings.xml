@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">dmsample-basic</string>
+
+    <string name="player_id_string_format">Player ID: %s</string>
+    <string name="video_id_string_format">Video ID: %s</string>
+    <string name="playlist_id_string_format">Playlist ID: %s</string>
+</resources>
