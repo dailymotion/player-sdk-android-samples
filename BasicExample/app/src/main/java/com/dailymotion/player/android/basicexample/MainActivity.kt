@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.dailymotion.player.android.sdk.Dailymotion
+import com.dailymotion.player.android.sdk.LogLevel
 import com.dailymotion.player.android.sdk.PlayerView
 import com.dailymotion.player.android.sdk.webview.error.PlayerError
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val logcatTag = "dmsample-basic-${Dailymotion.version()}"
         val playerId = "xhysi"
         val videoId = "x84sh87"
         val playlistId = "x79dlo"
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.videoIdTextView)?.text = resources.getString(R.string.video_id_string_format, videoId)
         findViewById<TextView>(R.id.playlistIdTextView)?.text = resources.getString(R.string.playlist_id_string_format, playlistId)
 
-        Log.d("dmsample-basic", "Creating dailymotion player with playerId=$playerId, videoId=$videoId, playlistId=$playlistId")
+        Log.d(logcatTag, "Creating dailymotion player with playerId=$playerId, videoId=$videoId, playlistId=$playlistId")
         Dailymotion.createPlayer(
             context = this,
             playerId = playerId,
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             playlistId = playlistId,
             playerSetupListener = object : Dailymotion.PlayerSetupListener {
                 override fun onPlayerSetupSuccess(player: PlayerView) {
-                    Log.d("dmsample-basic", "Successfully created dailymotion player")
+                    Log.d(logcatTag, "Successfully created dailymotion player")
 
                     val lp = FrameLayout.LayoutParams(
                         FrameLayout.LayoutParams.MATCH_PARENT,
@@ -40,10 +42,10 @@ class MainActivity : AppCompatActivity() {
                     )
                     containerView.addView(player, lp)
 
-                    Log.d("dmsample-basic", "Added dailymotion player to view hierarchy")
+                    Log.d(logcatTag, "Added dailymotion player to view hierarchy")
                 }
                 override fun onPlayerSetupFailed(error: PlayerError) {
-                    Log.e("dmsample-basic", "Error while creating dailymotion player: ${error.message}")
+                    Log.e(logcatTag, "Error while creating dailymotion player: ${error.message}")
                 }
             }
         )
