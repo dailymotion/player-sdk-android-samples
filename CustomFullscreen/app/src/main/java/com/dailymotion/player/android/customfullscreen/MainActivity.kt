@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val logTag = "dmsample-basic-${Dailymotion.version()}"
+        val logTag = "dmsample-${Dailymotion.version()}"
         val playerId = "xhysi"
         val videoId = "x84sh87"
         val playlistId = "x79dlo"

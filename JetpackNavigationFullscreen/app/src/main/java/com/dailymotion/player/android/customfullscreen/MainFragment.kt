@@ -1,13 +1,17 @@
-package com.dailymotion.player.android.basicexample
+package com.dailymotion.player.android.customfullscreen
 
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.dailymotion.player.android.sdk.Dailymotion
 import com.dailymotion.player.android.sdk.LogLevel
 import com.dailymotion.player.android.sdk.PlayerView
@@ -15,30 +19,38 @@ import com.dailymotion.player.android.sdk.ads.DailymotionAds
 import com.dailymotion.player.android.sdk.listeners.PlayerListener
 import com.dailymotion.player.android.sdk.webview.error.PlayerError
 
-class MainActivity : AppCompatActivity() {
+class MainFragment: Fragment() {
 
     private var dmPlayer: PlayerView? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return inflater.inflate(R.layout.fragment_main, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val logTag = "dmsample-${Dailymotion.version()}"
         val playerId = "xhysi"
         val videoId = "x84sh87"
         val playlistId = "x79dlo"
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
-        val containerView = findViewById<FrameLayout>(R.id.playerContainerView)
-        findViewById<TextView>(R.id.playerIdTextView)?.text =
+        val containerView = view.findViewById<FrameLayout>(R.id.playerContainerView)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+
+        view.findViewById<TextView>(R.id.playerIdTextView)?.text =
             resources.getString(R.string.player_id_string_format, playerId)
-        findViewById<TextView>(R.id.videoIdTextView)?.text =
+        view.findViewById<TextView>(R.id.videoIdTextView)?.text =
             resources.getString(R.string.video_id_string_format, videoId)
-        findViewById<TextView>(R.id.playlistIdTextView)?.text =
+        view.findViewById<TextView>(R.id.playlistIdTextView)?.text =
             resources.getString(R.string.playlist_id_string_format, playlistId)
-        findViewById<TextView>(R.id.sdkVersionTextView)?.text =
+        view.findViewById<TextView>(R.id.sdkVersionTextView)?.text =
             resources.getString(R.string.sdk_version_string_format, Dailymotion.version())
-        findViewById<TextView>(R.id.adsVersionTextView)?.text =
+        view.findViewById<TextView>(R.id.adsVersionTextView)?.text =
             resources.getString(R.string.ads_version_string_format, DailymotionAds.version())
 
         Dailymotion.setLogLevel(LogLevel.All)
@@ -50,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                 "Creating dailymotion player with playerId=$playerId, videoId=$videoId, playlistId=$playlistId"
             )
             Dailymotion.createPlayer(
-                context = this,
+                context = view.context,
                 playerId = playerId,
                 videoId = videoId,
                 playlistId = playlistId,
@@ -76,7 +88,9 @@ class MainActivity : AppCompatActivity() {
                 playerListener = object : PlayerListener {
                     override fun onFullscreenRequested(playerDialogFragment: DialogFragment) {
                         super.onFullscreenRequested(playerDialogFragment)
-                        playerDialogFragment.show(this@MainActivity.supportFragmentManager, "dmPlayerFullscreenFragment")
+
+                        this@MainFragment.findNavController()
+                            .navigate(MainFragmentDirections.actionMainFragmentToFullscreenPlayerWebViewFragment())
                     }
                 })
         }
