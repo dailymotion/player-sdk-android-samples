@@ -1,4 +1,4 @@
-package com.dailymotion.player.android.customfullscreen
+package com.dailymotion.player.android.jetpackfullscreen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

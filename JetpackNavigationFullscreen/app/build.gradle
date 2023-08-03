@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.dailymotion.player.android.customfullscreen'
+    namespace 'com.dailymotion.player.android.jetpackfullscreen'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.dailymotion.player.android.customfullscreen"
+        applicationId "com.dailymotion.player.android.jetpackfullscreen"
         minSdk 24
         targetSdk 33
         versionCode 1
