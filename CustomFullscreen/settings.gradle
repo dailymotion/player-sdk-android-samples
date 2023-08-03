@@ -17,5 +17,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "dmsample-basic"
+rootProject.name = "dmsample-custom-fullscreen"
 include ':app'
