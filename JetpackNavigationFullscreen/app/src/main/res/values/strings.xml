@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">dmsample-basic</string>
+    <string name="app_name">dmsample-jetpack-navigation-fullscreen</string>
 
     <string name="player_id_string_format">Player ID: %s</string>
     <string name="video_id_string_format">Video ID: %s</string>
     <string name="playlist_id_string_format">Playlist ID: %s</string>
     <string name="sdk_version_string_format">sdk version: %s</string>
     <string name="ads_version_string_format">ads version: %s</string>
-    <string name="title">Basic example</string>
+    <string name="title">Jetpack Navigation Fullscreen</string>
+    <string name="fragment_main_label">Main Fragment</string>
 </resources>

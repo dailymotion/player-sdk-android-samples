@@ -1,12 +1,15 @@
-package com.dailymotion.player.android.basicexample
+package com.dailymotion.player.android.customfullscreen
 
+import android.app.ActionBar.LayoutParams
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.DialogFragment
 import com.dailymotion.player.android.sdk.Dailymotion
 import com.dailymotion.player.android.sdk.LogLevel
@@ -15,9 +18,13 @@ import com.dailymotion.player.android.sdk.ads.DailymotionAds
 import com.dailymotion.player.android.sdk.listeners.PlayerListener
 import com.dailymotion.player.android.sdk.webview.error.PlayerError
 
+
 class MainActivity : AppCompatActivity() {
 
     private var dmPlayer: PlayerView? = null
+
+    private var screenHeight: Int = 0
+    private var screenWidth: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +34,11 @@ class MainActivity : AppCompatActivity() {
         val playerId = "xhysi"
         val videoId = "x84sh87"
         val playlistId = "x79dlo"
+
+        val fullscreenGroupVisibility = findViewById<Group>(R.id.fullscreenGroup)
+        val containerView = findViewById<FrameLayout>(R.id.playerContainerView)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
-        val containerView = findViewById<FrameLayout>(R.id.playerContainerView)
         findViewById<TextView>(R.id.playerIdTextView)?.text =
             resources.getString(R.string.player_id_string_format, playerId)
         findViewById<TextView>(R.id.videoIdTextView)?.text =
@@ -40,6 +49,11 @@ class MainActivity : AppCompatActivity() {
             resources.getString(R.string.sdk_version_string_format, Dailymotion.version())
         findViewById<TextView>(R.id.adsVersionTextView)?.text =
             resources.getString(R.string.ads_version_string_format, DailymotionAds.version())
+
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        screenHeight = displayMetrics.heightPixels
+        screenWidth = displayMetrics.widthPixels
 
         Dailymotion.setLogLevel(LogLevel.All)
         DailymotionAds.setLogLevel(com.dailymotion.player.android.sdk.ads.LogLevel.All)
@@ -76,7 +90,22 @@ class MainActivity : AppCompatActivity() {
                 playerListener = object : PlayerListener {
                     override fun onFullscreenRequested(playerDialogFragment: DialogFragment) {
                         super.onFullscreenRequested(playerDialogFragment)
-                        playerDialogFragment.show(this@MainActivity.supportFragmentManager, "dmPlayerFullscreenFragment")
+                        Log.d(logTag, "Enter fullscreen")
+
+                        containerView.layoutParams.height = LayoutParams.MATCH_PARENT
+                        containerView.layoutParams.width = LayoutParams.MATCH_PARENT
+                        fullscreenGroupVisibility?.visibility = View.GONE
+                        dmPlayer?.notifyFullscreenChanged()
+                    }
+
+                    override fun onFullscreenExit(playerView: PlayerView) {
+                        super.onFullscreenExit(playerView)
+                        Log.d(logTag, "Exit fullscreen")
+
+                        containerView.layoutParams.height = this@MainActivity.resources.getDimension(R.dimen.dm_player_height).toInt()
+                        containerView.layoutParams.width = LayoutParams.MATCH_PARENT
+                        fullscreenGroupVisibility?.visibility = View.VISIBLE
+                        dmPlayer?.notifyFullscreenChanged()
                     }
                 })
         }
