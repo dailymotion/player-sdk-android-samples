@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="34dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:layout_marginTop="@dimen/section_item_default_margin_top"
+    android:layout_marginBottom="@dimen/section_item_default_margin_top"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textColor="@color/trolley_grey"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/abc_favorite_regular"
+        tools:text="Section ###"/>
+</FrameLayout>

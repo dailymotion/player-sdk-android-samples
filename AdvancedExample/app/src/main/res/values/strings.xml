@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Sample DM Player SDK</string>
+
+    <string name="app_properties_text">v 0.1</string>
+
+    <string name="screen_selection_title">Screen selection</string>
+
+    <string name="integration_types">Integration types</string>
+    <string name="basic_embed_title">Basic Embed</string>
+    <string name="advertising_screen_title">Advertising Player</string>
+    <string name="vertical_screen_title">Vertical Player</string>
+    <string name="live_player_title">Live Player</string>
+
+    <string name="player_api">Player API</string>
+    <string name="player_events_state_title">Events &amp; State</string>
+    <string name="player_methods_title">Methods</string>
+    <string name="player_events_tab">Player events</string>
+    <string name="player_state_tab">Player state</string>
+    <string name="play">play</string>
+    <string name="pause">pause</string>
+    <string name="seek">seek</string>
+    <string name="load">load</string>
+    <string name="fullscreen">fullscreen</string>
+    <string name="seek_foward_format">+ %d seconds</string>
+</resources>

@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Dmsample" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/white</item>
+
+        <!-- Status bar setup -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
+    <style name="Theme.Dmsample" parent="Base.Theme.Dmsample" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_dm_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Dmsample</item>
+        <item name="splashScreenIconSize">50dp</item>
+    </style>
+
+</resources>

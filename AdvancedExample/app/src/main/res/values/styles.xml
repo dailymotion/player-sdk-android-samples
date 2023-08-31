@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Dailymotion" />
+
+    <style name="Dailymotion.TextView" />
+
+    <style name="Dailymotion.TextView.Title" parent="Dailymotion.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Dailymotion.AppTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/black</item>
+        <item name="tabTextAppearance">@style/Dailymotion.AppTabTextAppearance</item>
+        <item name="tabSelectedTextAppearance">@style/Dailymotion.AppTabSelectedTextAppearance</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabRippleColor">@null</item>
+        <item name="tabPaddingBottom">10dp</item>
+    </style>
+
+    <!-- for text -->
+    <style name="Dailymotion.AppTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/trolley_grey</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Dailymotion.AppTabSelectedTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+
+    <style name="Dailymotion.ControlsButton">
+
+    </style>
+
+    <style name="Dailymotion.ControlsButton.ImageView" parent="Dailymotion.ControlsButton">
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="Dailymotion.ControlsButton.Text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

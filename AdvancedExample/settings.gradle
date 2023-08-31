@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+
+        maven {
+            name = "DailymotionMavenRelease"
+            url = "https://mvn.dailymotion.com/repository/releases/"
+        }
+    }
+}
+rootProject.name = "sample-dm-player-sdk"
+include ':app'

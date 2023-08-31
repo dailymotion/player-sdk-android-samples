@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:layout_marginTop="@dimen/section_item_default_margin_top"
+    android:layout_marginBottom="@dimen/section_item_default_margin_top"
+    android:elevation="2dp"
+    android:background="@drawable/background_text_row_item"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="17sp"
+        android:fontFamily="@font/abc_favorite_regular"
+        android:textColor="@color/black"
+        tools:text="Item ###" />
+</FrameLayout>
