@@ -8,7 +8,7 @@
 
 
 ## Integration documentation
- [https://developers.dailymotion.com/native-android-sdk-pre-release/#key-features](https://developers.dailymotion.com/native-android-sdk-pre-release/#key-features)
+ [https://developers.dailymotion.com/guides/getting-started-with-android-sdk](https://developers.dailymotion.com/guides/getting-started-with-android-sdk)
 
 ## Supported versions & requirements:
 
