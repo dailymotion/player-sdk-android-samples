@@ -12,6 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App.Starting"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+            android:value="com.dailymotion.sample.player.sdk.cast.CastOptionsProvider" />
+
+        <activity
+            android:name="com.dailymotion.sample.player.sdk.cast.ExpandedControlsActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/SampleCastTheme"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.dailymotion.sample.player.sdk.MainActivity"
+            android:exported="false"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dailymotion.sample.player.sdk.MainActivity" />
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
