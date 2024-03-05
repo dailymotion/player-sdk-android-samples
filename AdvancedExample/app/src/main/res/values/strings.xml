@@ -22,4 +22,6 @@
     <string name="load">load</string>
     <string name="fullscreen">fullscreen</string>
     <string name="seek_foward_format">+ %d seconds</string>
+    <string name="cast_media_route_menu_title"><![CDATA[Play on&#8230;]]></string>
+    <string name="media_route_menu_title">Cast</string>
 </resources>

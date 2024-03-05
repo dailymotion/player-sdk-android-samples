@@ -2,6 +2,7 @@ package com.dailymotion.sample.player.sdk
 
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.view.Menu
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
@@ -11,6 +12,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.dailymotion.sample.player.sdk.screenselection.ScreenSelectionFragment
+import com.google.android.gms.cast.framework.CastButtonFactory
+import com.google.android.gms.cast.framework.CastContext
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        /* Initialize Google Cast sdk */
+        CastContext.getSharedInstance(this)
 
         /*
          * The consent string is passed in manually for demo purposes only, this functionality
@@ -53,6 +59,17 @@ class MainActivity : AppCompatActivity() {
                 add<ScreenSelectionFragment>(R.id.fragment_container_view)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
+        CastButtonFactory.setUpMediaRouteButton(
+            applicationContext,
+            menu,
+            R.id.media_route_menu_item
+        )
+        return true
     }
 
     override fun setTitle(titleId: Int) {

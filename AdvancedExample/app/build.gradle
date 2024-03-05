@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.dailymotion.sample.player.sdk'
-    compileSdk 33
+    compileSdk 34
 
     buildFeatures {
         buildConfig true
@@ -14,9 +14,9 @@ android {
     defaultConfig {
         applicationId "com.dailymotion.sample.player.sdk"
         minSdk 24
-        targetSdk 33
-        versionCode 2
-        versionName "1.0.1"
+        targetSdk 34
+        versionCode 3
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,17 +38,22 @@ android {
 
 dependencies {
 
-    implementation 'com.dailymotion.player.android:sdk:1.0.9'
-    implementation 'com.dailymotion.player.android:ads:1.0.9'
+    implementation 'com.dailymotion.player.android:sdk:1.1.0'
+    implementation 'com.dailymotion.player.android:ads:1.1.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
-    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.29.0'
+    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.32.0'
 
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation "androidx.core:core-splashscreen:1.0.1"
-    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
+    implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'com.dailymotion.player.android:cast:1.1.0'
+    implementation 'androidx.mediarouter:mediarouter:1.6.0'
+    implementation 'com.google.android.gms:play-services-cast-framework:21.4.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
