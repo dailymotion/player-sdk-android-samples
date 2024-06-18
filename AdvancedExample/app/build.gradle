@@ -15,15 +15,15 @@ android {
         applicationId "com.dailymotion.sample.player.sdk"
         minSdk 24
         targetSdk 34
-        versionCode 4
-        versionName "1.2.0"
+        versionCode 5
+        versionName "1.2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,8 +38,8 @@ android {
 
 dependencies {
 
-    implementation 'com.dailymotion.player.android:sdk:1.2.0'
-    implementation 'com.dailymotion.player.android:ads:1.2.0'
+    implementation 'com.dailymotion.player.android:sdk:1.2.1'
+    implementation 'com.dailymotion.player.android:ads:1.2.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
     implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.33.0'
 
@@ -51,7 +51,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    implementation 'com.dailymotion.player.android:cast:1.2.0'
+    implementation 'com.dailymotion.player.android:cast:1.2.1'
     implementation 'androidx.mediarouter:mediarouter:1.6.0'
     implementation 'com.google.android.gms:play-services-cast-framework:21.4.0'
 
