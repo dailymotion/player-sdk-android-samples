@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@id/shadowView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/logFrameLayout">
+        app:layout_constraintBottom_toTopOf="@id/logConstraintLayout">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/playerEventsTabItem"
@@ -57,30 +57,72 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <FrameLayout
-        android:id="@+id/logFrameLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_margin="12dp"
         app:layout_constraintTop_toBottomOf="@id/logTabLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/eventsGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="playerEventsTextView, clearButton"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/stateGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="playerStateTextView, refreshButton"/>
+
         <TextView android:id="@+id/playerEventsTextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars = "vertical"
-            android:fontFamily="@font/abc_favorite_mono_regular"/>
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            android:fontFamily="@font/abc_favorite_mono_regular"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/clearButton"/>
+
+        <Button android:id="@+id/clearButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/clear"
+            app:icon="@drawable/ic_clear"
+            style="@style/Dailymotion.ActionButton"
+            app:layout_constraintTop_toBottomOf="@id/playerEventsTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView android:id="@+id/playerStateTextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:scrollbars = "vertical"
-            android:fontFamily="@font/abc_favorite_mono_regular"/>
-    </FrameLayout>
+            android:fontFamily="@font/abc_favorite_mono_regular"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/refreshButton"/>
+
+        <Button android:id="@+id/refreshButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/refresh"
+            app:icon="@drawable/ic_refresh"
+            style="@style/Dailymotion.ActionButton"
+            app:layout_constraintTop_toBottomOf="@id/playerStateTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <fragment
         android:id="@+id/castMiniController"
