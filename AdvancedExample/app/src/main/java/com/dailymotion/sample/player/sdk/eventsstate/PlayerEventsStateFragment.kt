@@ -7,9 +7,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.FrameLayout.LayoutParams
 import android.widget.TextView
+import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.dailymotion.player.android.sdk.Dailymotion
@@ -32,9 +34,13 @@ class PlayerEventsStateFragment: Fragment() {
 
     private var videoContainer: FrameLayout? = null
     private var tabLayout: TabLayout? = null
+    private var eventsGroup: Group? = null
     private var playerEventsTextView: TextView? = null
+    private var clearButton: Button? = null
+    private var stateGroup: Group? = null
     private var playerStateTextView: TextView? = null
     private var playerView: PlayerView? = null
+    private var refreshButton: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,11 +56,15 @@ class PlayerEventsStateFragment: Fragment() {
         videoContainer = view.findViewById(R.id.videoContainer)
         tabLayout = view.findViewById(R.id.logTabLayout)
 
+        eventsGroup = view.findViewById(R.id.eventsGroup)
         playerEventsTextView = view.findViewById(R.id.playerEventsTextView)
         playerEventsTextView?.movementMethod = ScrollingMovementMethod()
+        clearButton = view.findViewById(R.id.clearButton)
 
+        stateGroup = view.findViewById(R.id.stateGroup)
         playerStateTextView = view.findViewById(R.id.playerStateTextView)
         playerStateTextView?.movementMethod = ScrollingMovementMethod()
+        refreshButton = view.findViewById(R.id.refreshButton)
 
         initializeToolbar()
         initializeLogsTextView()
@@ -306,15 +316,7 @@ class PlayerEventsStateFragment: Fragment() {
                         0 -> showPlayerEventsLog()
                         1 -> {
                             showPlayerStateLog()
-                            playerView?.getState(object : PlayerView.PlayerStateCallback {
-                                override fun onPlayerStateReceived(
-                                    playerView: PlayerView,
-                                    playerState: PlayerEvent.PlayerState
-                                ) {
-                                    val playerStateString = PlayerStateHelper.mapPlayerStateToString(playerState)
-                                    writeToPlayerState(playerStateString)
-                                }
-                            })
+                            logPlayerState()
                         }
                     }
                 }
@@ -329,16 +331,36 @@ class PlayerEventsStateFragment: Fragment() {
             })
             t.getTabAt(0)?.select()
         }
+
+        clearButton?.setOnClickListener {
+            playerEventsTextView?.text = ""
+        }
+
+        refreshButton?.setOnClickListener {
+            logPlayerState()
+        }
     }
 
     private fun showPlayerEventsLog() {
-        playerEventsTextView?.visibility = View.VISIBLE
-        playerStateTextView?.visibility = View.INVISIBLE
+        eventsGroup?.visibility = View.VISIBLE
+        stateGroup?.visibility = View.GONE
     }
 
     private fun showPlayerStateLog() {
-        playerEventsTextView?.visibility = View.INVISIBLE
-        playerStateTextView?.visibility = View.VISIBLE
+        eventsGroup?.visibility = View.GONE
+        stateGroup?.visibility = View.VISIBLE
+    }
+
+    private fun logPlayerState() {
+        playerView?.getState(object : PlayerView.PlayerStateCallback {
+            override fun onPlayerStateReceived(
+                playerView: PlayerView,
+                playerState: PlayerEvent.PlayerState
+            ) {
+                val playerStateString = PlayerStateHelper.mapPlayerStateToString(playerState)
+                writeToPlayerState(playerStateString)
+            }
+        })
     }
 
     @SuppressLint("SetTextI18n")

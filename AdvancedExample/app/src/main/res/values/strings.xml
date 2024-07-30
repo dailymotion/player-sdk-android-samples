@@ -24,4 +24,6 @@
     <string name="seek_foward_format">+ %d seconds</string>
     <string name="cast_media_route_menu_title"><![CDATA[Play on&#8230;]]></string>
     <string name="media_route_menu_title">Cast</string>
+    <string name="clear">Clear</string>
+    <string name="refresh">Refresh</string>
 </resources>
