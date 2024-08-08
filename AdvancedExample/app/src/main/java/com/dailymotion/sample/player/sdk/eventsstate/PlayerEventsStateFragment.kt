@@ -153,6 +153,14 @@ class PlayerEventsStateFragment: Fragment() {
                     super.onPlayerVolumeChange(playerView, volume, muted)
                     writeToPlayerEventLog("onPlayerVolumeChange")
                 }
+
+                override fun onPlayerPlaybackSpeedChange(
+                    playerView: PlayerView,
+                    event: PlayerEvent.PlaybackSpeedChange
+                ) {
+                    super.onPlayerPlaybackSpeedChange(playerView, event)
+                    writeToPlayerEventLog("onPlayerPlaybackSpeedChange")
+                }
             },
             videoListener = object : VideoListener {
                 override fun onVideoBuffering(playerView: PlayerView) {
