@@ -16,6 +16,12 @@ dependencyResolutionManagement {
             url = "https://mvn.dailymotion.com/repository/releases/"
         }
     }
+
+    versionCatalogs {
+        libs {
+            from(files("../libs.versions.toml"))
+        }
+    }
 }
 rootProject.name = "sample-dm-player-sdk"
 include ':app'
