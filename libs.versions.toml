@@ -1,0 +1,7 @@
+[versions]
+dailymotion-sdk-version = "1.2.3"
+
+[libraries]
+dailymotion-sdk = { group = "com.dailymotion.player.android", name = "sdk", version.ref = "dailymotion-sdk-version" }
+dailymotion-ads = { group = "com.dailymotion.player.android", name = "ads", version.ref = "dailymotion-sdk-version" }
+dailymotion-cast = { group = "com.dailymotion.player.android", name = "cast", version.ref = "dailymotion-sdk-version" }
