@@ -9,7 +9,7 @@ do
 	
 	cd $i
 	echo -e "\n==> Building project $i ..."
-	echo "==> Running command: $BUILD_DEBUG_CMD"
+	echo "==> Running command: $BUILD_CMD"
 	eval $BUILD_CMD
 	echo "==> Building project $i DONE"
 	
