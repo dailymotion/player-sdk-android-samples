@@ -1,5 +1,5 @@
 [versions]
-dailymotion-sdk-version = "1.2.6"
+dailymotion-sdk-version = "1.2.7"
 
 [libraries]
 dailymotion-sdk = { group = "com.dailymotion.player.android", name = "sdk", version.ref = "dailymotion-sdk-version" }
