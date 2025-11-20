@@ -13,7 +13,7 @@ dependencyResolutionManagement {
 
         maven {
             name = "DailymotionMavenRelease"
-            url = "https://mvn.dailymotion.com/repository/releases/"
+            url = "https://mvn.dailymotion.com/repository/snapshots/"
         }
     }
 
