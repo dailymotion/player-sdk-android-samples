@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace 'com.dailymotion.player.android.jetpackfullscreen'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.dailymotion.player.android.jetpackfullscreen"
