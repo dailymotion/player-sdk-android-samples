@@ -11,5 +11,5 @@
 
 ## Supported versions & requirements:
 
-- Kotlin 1.8.20
+- Kotlin 2.+
 - Android minSdk 21
