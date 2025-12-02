@@ -6,7 +6,7 @@
 <br>
 
 ## Integration documentation
- [https://developers.dailymotion.com/guides/getting-started-with-android-sdk](https://developers.dailymotion.com/guides/getting-started-with-android-sdk)
+ [https://developers.dailymotion.com/docs/getting-started-with-the-android-sdk](https://developers.dailymotion.com/docs/getting-started-with-the-android-sdk)
 <br><br>
 
 ## Supported versions & requirements:
