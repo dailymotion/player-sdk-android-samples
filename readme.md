@@ -12,4 +12,4 @@
 ## Supported versions & requirements:
 
 - Kotlin 2.+
-- Android minSdk 21
+- Android minSdk 23
