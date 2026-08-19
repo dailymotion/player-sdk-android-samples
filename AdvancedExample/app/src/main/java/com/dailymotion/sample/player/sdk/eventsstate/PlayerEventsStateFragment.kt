@@ -147,7 +147,7 @@ class PlayerEventsStateFragment: Fragment() {
 
                 override fun onPlayerVolumeChange(
                     playerView: PlayerView,
-                    volume: Long,
+                    volume: Double,
                     muted: Boolean
                 ) {
                     super.onPlayerVolumeChange(playerView, volume, muted)

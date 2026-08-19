@@ -45,9 +45,6 @@ class BasicEmbedFragment : Fragment() {
         Dailymotion.createPlayer(context = view.context,
             playerId = "xix5w",
             videoId = "x8nlohg",
-            playerParameters = PlayerParameters(
-                mute = true
-            ),
             playerSetupListener = object : Dailymotion.PlayerSetupListener {
                 override fun onPlayerSetupSuccess(player: PlayerView) {
                     Log.d(TAG, "Successfully created dailymotion player")
